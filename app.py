@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for
-
+from utils.utils import connect_to_database, insert_into_table, close_connection
 
 
 app = Flask(__name__)
