@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- DataTales Example -->
+<div class="card-body">
+    <img src="" class="py-4 img-fluid" style="">
+</div>
+
+<h1> 
+    --- TERMS LIST ---
+</h1><br><br>
+<p> 
+    Here You can see list of terms
+</p>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Term Id</th>
+        <th scope="col">From Date</th>
+        <th scope="col">Is current</th>
+      </tr>
+    </thead>
+    {% for term in terms %}
+    <tbody>
+      <tr>
+        <td>{{ term.0 }}</td>
+        <td>{{ term.1 }}</td>
+        <td>{{ term.2 }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+{% endblock %}

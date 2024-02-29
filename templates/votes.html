@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- DataTales Example -->
+<div class="card-body">
+    <img src="" class="py-4 img-fluid" style="">
+</div>
+
+<h1> 
+    --- CLUBS LIST ---
+</h1><br><br>
+<p> 
+    Here You can see list of votes:
+</p>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Sitting</th>
+        <th scope="col">Sitting day</th>
+        <th scope="col">Term</th>
+        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+        <th scope="col">Topic</th>
+        <th scope="col">Total Voted</th>
+        <th scope="col">Abstain</th>
+        <th scope="col">Yes</th>
+        <th scope="col">No</th>
+      </tr>
+    </thead>
+    {% for vote in votes %}
+    <tbody>
+      <tr>
+        <td>{{ vote.1 }}</td>
+        <td>{{ vote.2 }}</td>
+        <td>{{ vote.3 }}</td>
+        <td>{{ vote.4 }}</td>
+        <td>{{ vote.7 }}</td>
+        <td>{{ vote.8 }}</td>
+        <td>{{ vote.9 }}</td>
+        <td>{{ vote.10 }}</td>
+        <td>{{ vote.11 }}</td>
+        <td>{{ vote.12 }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+{% endblock %}

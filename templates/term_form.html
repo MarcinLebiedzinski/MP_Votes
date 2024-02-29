@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- DataTales Example -->
+<div class="card-body">
+    <img src="" class="py-4 img-fluid" style="">
+</div>
+
+<h1> 
+    --- MEMBERS LIST ---
+</h1><br><br>
+<p> 
+    Please choose term:
+</p>
+
+
+<form action="/{{view}}"method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Term</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="term">
+        <option>10</option>
+        <option>9</option>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+{% endblock %}

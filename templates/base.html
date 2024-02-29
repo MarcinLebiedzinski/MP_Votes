@@ -30,7 +30,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url_for('index') }}">
                 <div class="sidebar-brand-text mx-3">MP_Votes</div>
             </a>
 
@@ -40,12 +40,12 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                General
+                About
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('index') }}">
                     <i class="fas fa-info-circle fa-cog"></i>
                     <span>About</span>
                 </a>
@@ -57,40 +57,63 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Content
+                API 
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('load_to_db') }}">
+                    <i class="fas fa-info-circle fa-cog"></i>
+                    <span>Load to database </span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                General information
             </div>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('terms') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>The Sejm: terms</span></a>
+                    <span>Terms</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('clubs') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>The Sejm: deputies</span></a>
+                    <span>Clubs</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('members') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>The Sejm: members</span></a>
+                    <span>Members</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('votes') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>The Sejm: list of votes</span></a>
+                    <span>Votes</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ url_for('membervote') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>The Sejm: member's votes</span></a>
+                    <span>Member's votes</span></a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Reports
+            </div>
 
                         <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -101,8 +124,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Sample Report 1</a>
-                        <a class="collapse-item" href="#">Sample Report 2</a>
+                        <a class="collapse-item" href="#">Member's education</a>
+                        <a class="collapse-item" href="#">Member's age</a>
+                        <a class="collapse-item" href="#">number of absences</a>
                     </div>
                 </div>
             </li>
@@ -150,7 +174,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Martdev 2023</span>
+                        <span>Copyright &copy; Martdev 2024</span>
                     </div>
                 </div>
             </footer>

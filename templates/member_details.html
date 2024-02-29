@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- DataTales Example -->
+<div class="card-body">
+    <img src="" class="py-4 img-fluid" style="">
+</div>
+
+<h1> 
+  --- MEMBER DETAILS ---
+</h1><br>
+
+<img src="data:image/jpeg;base64,{{ photo_data }}"><br><br>
+
+<dl class="row">
+
+  <dt class="col-sm-3">First name</dt>
+  <dd class="col-sm-9">{{ member.0.8 }}</dd>
+
+  <dt class="col-sm-3">Second name</dt>
+  <dd class="col-sm-9">{{ member.0.9 }}</dd>
+
+  <dt class="col-sm-3">Last name</dt>
+  <dd class="col-sm-9">{{ member.0.10 }}</dd>
+
+  <dt class="col-sm-3">Member ID</dt>
+  <dd class="col-sm-9">{{ member.0.0 }}</dd>
+
+  <dt class="col-sm-3">Birth date</dt>
+  <dd class="col-sm-9">{{ member.0.2 }}</dd>
+
+  <dt class="col-sm-3">Birth location</dt>
+  <dd class="col-sm-9">{{ member.0.3 }}</dd>
+
+  <dt class="col-sm-3">Education level</dt>
+  <dd class="col-sm-9">{{ member.0.7 }}</dd>
+
+  <dt class="col-sm-3">Profession</dt>
+  <dd class="col-sm-9">{{ member.0.11 }}</dd>
+  
+  <dt class="col-sm-3">Active</dt>
+  <dd class="col-sm-9">{{ member.0.1 }}</dd>
+
+  <dt class="col-sm-3">Club</dt>
+  <dd class="col-sm-9">{{ member.0.4 }}</dd>
+
+  <dt class="col-sm-3">District number</dt>
+  <dd class="col-sm-9">{{ member.0.6 }}</dd>
+
+  <dt class="col-sm-3">District number</dt>
+  <dd class="col-sm-9">{{ member.0.5 }}</dd>
+
+  <dt class="col-sm-3">Voivodeship</dt>
+  <dd class="col-sm-9">{{ member.0.13 }}</dd>
+
+  <dt class="col-sm-3">Number of votes</dt>
+  <dd class="col-sm-9">{{ member.0.11 }}</dd>
+
+  <dt class="col-sm-3">Term</dt>
+  <dd class="col-sm-9">{{ term }}</dd>
+</dl>
+
+{% endblock %}
