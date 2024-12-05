@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="py-2"> Absences</h3>
+
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>Last Name</th>
+        <th>Club</th>
+        <th>Absences</th>
+    </tr>
+    </thead>
+    {% for row in data %}
+    <tbody>
+      <tr>
+        <td>{{ row.member_id }}</td>
+        <td>{{ row.first_name }}</td>
+        <td>{{ row.second_name }}</td>
+        <td>{{ row.last_name }}</td>
+        <td>{{ row.club }}</td>
+        <td>{{ row.count }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+{% endblock %}

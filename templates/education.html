@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3 class="py-2"> Education Report </h3>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Club</th>
+        <th scope="col">Education level</th>
+        <th scope="col">Number of members</th>
+
+
+      </tr>
+    </thead>
+    {% for row in data %}
+    <tbody>
+      <tr>
+        <td>{{ row.club }}</td>
+        <td>{{ row.education_level }}</td>
+        <td>{{ row.counts }}</td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+
+{% endblock %}

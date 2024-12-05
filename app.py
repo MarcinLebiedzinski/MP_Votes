@@ -5,7 +5,10 @@ from utils.utils import get_term_details, get_club_list, get_member_list, get_vo
 from utils.utils import save_term_details, save_club_details, save_member_details, save_membervote_details, save_vote_details
 
 from utils.utils import load_term_list, load_member_list, load_club_list, load_vote_list, load_membervote_list
-from utils.utils import load_member_name
+from utils.utils import load_member_name, load_absences, load_clubs_education
+from collections import defaultdict
+
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -132,21 +135,53 @@ def member_details(term_id, member_id):
         pass
 
 
+@app.route("/absences", methods=["GET", "POST"])
+def absences():
+    if request.method == "GET":
+        view = 'absences'
+        terms = [9, 10]
+        return render_template('term_form.html', terms=terms, view=view)
+    else:
+        term = request.form['term']
+        absences = load_absences(term)
+        absences = [[item if item is not None else " " for item in row] for row in absences]
+
+        # Creating DataFrame
+        df = pd.DataFrame(absences, columns=['member_id', 'first_name', 'second_name', 'last_name', 'club', 'vote'])
+
+        # Grouping by 'member_id' and counting rows
+        df = df.groupby(['member_id', 'first_name', 'second_name', 'last_name', 'club'], as_index=False).agg({'vote': 'count'})
+
+        # Changing columns name 'vote' for 'count'
+        df.rename(columns={'vote': 'count'}, inplace=True)
+
+        # Ordering DataFrame by columns 'count' descending
+        df = df.sort_values('count', ascending=False)
+
+        # Converting DataFrame to list of dicts
+        data = df.to_dict('records')
+
+        return render_template('absences.html', term=term, absences=len(absences), data=data)
+
+@app.route("/education", methods=["GET", "POST"])
+def education():
+    if request.method == "GET":
+        view = 'education'
+        terms = [9, 10]
+        return render_template('term_form.html', terms=terms, view=view)
+    else:
+        term = request.form['term']
+        clubs_education = load_clubs_education(term)
+        clubs_education = [[item if item is not None else " " for item in row] for row in clubs_education]
+        df = pd.DataFrame(clubs_education, columns=['club', 'education_level'])
+        df_grouped = df.groupby(['club', 'education_level']).size().reset_index(name='counts')
+        data = df_grouped.to_dict('records')
+
+        return render_template('education.html', data=data)
+
+        
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-to_do = """
-Proponowane raporty:
-    - dodać zdjęcie posła
-    - widok z raportem ile dany poseł odpuścił głosowań
-    - widok z 
-    - widok a ilością posłów wg wykształcenia (diagram)  w danej partii 
-    - widok ze średnią wieku posłów  danej partii (diagram)
-    - na widoku klubów diagram z ilością posłów w partiach
-    - do widoku szczegółów posła dodać zdjęcie posła (ewentualnie link do API)
-    - widok listy klubów - albo dodać szczegóły klubu albo usunąć link
-    """
 
 
 

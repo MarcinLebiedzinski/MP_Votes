@@ -409,7 +409,7 @@ def save_membervote_details(membervote_details):
 def load_term_list():
     db_term = DataBase('db_term')
     db_term.connection
-    sql = "SELECT * FROM TestDB.dbo.term"
+    sql = "SELECT * FROM TestDB.dbo.term ORDER BY term_id DESC"
     terms = db_term.fetch_table(sql)
     return terms
 
@@ -508,6 +508,39 @@ def get_photo(term, member_id):
     sql = f"SELECT photo FROM TestDB.dbo.photo WHERE member_id = {member_id} AND term = {term};"
     photo = db_photo.fetch_photo(sql)
     return photo
+
+def load_absences(term):
+    db_membervote=DataBase("db_membervote")
+    db_membervote.connection
+    sql = f"""
+    SELECT TestDB.dbo.member.member_id,
+    TestDB.dbo.member.first_name, 
+    TestDB.dbo.member.second_name, 
+    TestDB.dbo.member.last_name, 
+    TestDB.dbo.member.club, 
+    TestDB.dbo.membervote.vote
+    FROM TestDB.dbo.membervote
+    JOIN TestDB.dbo.member
+    ON TestDB.dbo.membervote.member=TestDB.dbo.member.member_id 
+    AND TestDB.dbo.membervote.term=TestDB.dbo.member.term
+    WHERE TestDB.dbo.membervote.term={term}
+    AND TestDB.dbo.membervote.vote='ABSENT'
+    ;"""
+    absences = db_membervote.fetch_table(sql)
+    return absences
+
+
+def load_clubs_education(term):
+    db_member=DataBase("db_member")
+    db_member.connection
+    sql = f"""
+    SELECT TestDB.dbo.member.club,
+    TestDB.dbo.member.education_level
+    FROM TestDB.dbo.member
+    WHERE TestDB.dbo.member.term={term}
+    ;"""
+    clubs_education = db_member.fetch_table(sql)
+    return clubs_education
 
 # drop_table_photo()
 # create_table_photo()

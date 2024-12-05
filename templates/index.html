@@ -2,20 +2,17 @@
 
 {% block content %}
 
-<!-- DataTales Example -->
-<div class="card-body">
-    <img src="" class="py-4 img-fluid" style="">
-</div>
+<h3 class="py-2"> Polish Parliament </h3>
+<p>The application presents basic information about the Polish Parliament based on the API of the government website.</p>
 
-<h1> 
-    --- UNDER DEVELOPMENT ---
-</h1><br><br>
-<p> 
-    The application will present basic information about the Polish Sejm (about clubs, deputies, members and votes) made available via the API of the government website.
-</p>
-<p> 
-    “The purpose of the application is, among other things, the ability to quickly check how a selected deputy (member of parliament) voted in selected votes.”    
-</p>
+<p>Application let us to check some basic informations:</p>
+<p>- terms list, clubs list, member's details</p>
+<p>- voting list and mebers's votes</p>
+<p>- member's education report, member's age report, absences report</p>
+
+<p>The data was limited to the 9th and 10th terms due to the amount of information provided by the API</p>
+
+<img src="{{ url_for('static', filename='img/sejm.jpg') }}" style="height: 600px;" alt="Sejm">
 
 
 {% endblock %}

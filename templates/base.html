@@ -64,7 +64,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('load_to_db') }}">
                     <i class="fas fa-info-circle fa-cog"></i>
-                    <span>Load to database </span>
+                    <span>Get Data</span>
                 </a>
             </li>
 
@@ -124,9 +124,8 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Member's education</a>
-                        <a class="collapse-item" href="#">Member's age</a>
-                        <a class="collapse-item" href="#">number of absences</a>
+                        <a class="collapse-item" href="{{ url_for('education') }}">Clubs's education</a>
+                        <a class="collapse-item" href="{{ url_for('absences') }}">Absences</a>
                     </div>
                 </div>
             </li>
@@ -144,12 +143,6 @@
 
         </ul>
         <!-- End of Sidebar -->
-
-
-            <!-- Na głównej stronie nad tabelą powinny być "cards" z najważniejszymi informacjami typu - ilość ofert,
-            liczba nowych ofert, itd  -->
-
-
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
